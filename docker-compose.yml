@@ -9,4 +9,14 @@ services:
       - ./front-end:/front-end
       - /front-end/node_modules
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=development
+  web-test:
+    build:
+      context: ./front-end
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./front-end:/front-end
+      - /front-end/node_modules
+    environment:
+      - NODE_ENV=development
+    command: ["npm", "run", "test:run"]
