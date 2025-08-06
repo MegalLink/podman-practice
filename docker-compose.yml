@@ -1,0 +1,12 @@
+services:
+  web: 
+    build:
+      context: ./front-end
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./front-end:/front-end
+      - /front-end/node_modules
+    environment:
+      - NODE_ENV=production
